@@ -9,6 +9,7 @@ PyQt5 >= 5.8
 
 ## Feature
 * Provide ```toggled(bool)``` signal
+* You can give the argument to constructor which decides to provide animation(circle in the switch is moving when you toggle it) feature or not. For example, You can declare the class like ```PyQtSwitch(animation_enabled_flag=True)``` to give animation feature. Defaut value of the argument is False.
 
 ## Example
 Code Sample

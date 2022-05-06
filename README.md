@@ -5,7 +5,7 @@ PyQt Switch (O ) -> ( O)
 PyQt5 >= 5.8
 
 ## Setup
-```pip3 install git+https://github.com/yjg30737/pyqt-switch.git --upgrade```
+`pip3 install pyqt-switch`
 
 ## Feature
 * Provide ```toggled(bool)``` signal

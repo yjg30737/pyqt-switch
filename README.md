@@ -12,6 +12,7 @@ PyQt5 >= 5.8
 ## Feature
 * Provide `toggled(bool)` signal
 * Set the animation with `setAnimation(f: bool)`. Default is False.
+* Set the diameter of circle-shaped switch button with `setCircleDiameter(diameter: int)`. Default is 20(px).
 
 ## Example
 Code Sample

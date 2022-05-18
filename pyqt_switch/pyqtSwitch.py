@@ -1,4 +1,4 @@
-from PyQt5.QtCore import Qt, pyqtSignal, QPropertyAnimation, QPoint, QAbstractAnimation
+from PyQt5.QtCore import Qt, pyqtSignal, QPropertyAnimation, QPoint, QAbstractAnimation, QParallelAnimationGroup
 
 from PyQt5.QtWidgets import QWidget, QPushButton, QGridLayout, QHBoxLayout
 
@@ -59,6 +59,10 @@ class PyQtSwitch(QWidget):
             self.__pointAnimation.setStartValue(255)
             self.__pointAnimation.setEndValue(200)
 
+            self.__animationGroup = QParallelAnimationGroup()
+            self.__animationGroup.addAnimation(self.__colorAnimation)
+            self.__animationGroup.addAnimation(self.__pointAnimation)
+
     def mousePressEvent(self, e):
         self.__circle.toggle()
         return super().mousePressEvent(e)
@@ -66,15 +70,11 @@ class PyQtSwitch(QWidget):
     def __toggled(self, f):
         if self.__animationEnabledFlag:
             if f:
-                self.__colorAnimation.setDirection(QAbstractAnimation.Forward)
-                self.__colorAnimation.start()
-                self.__pointAnimation.setDirection(QAbstractAnimation.Forward)
-                self.__pointAnimation.start()
+                self.__animationGroup.setDirection(QAbstractAnimation.Forward)
+                self.__animationGroup.start()
             else:
-                self.__colorAnimation.setDirection(QAbstractAnimation.Backward)
-                self.__colorAnimation.start()
-                self.__pointAnimation.setDirection(QAbstractAnimation.Backward)
-                self.__pointAnimation.start()
+                self.__animationGroup.setDirection(QAbstractAnimation.Backward)
+                self.__animationGroup.start()
         else:
             if f:
                 self.__circle.move(self.__circle_diameter, 0)

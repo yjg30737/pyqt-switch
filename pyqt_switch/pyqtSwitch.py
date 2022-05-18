@@ -41,7 +41,8 @@ class PyQtSwitch(QWidget):
     def __setStyle(self):
         self.__circle.setFixedSize(self.__circle_diameter, self.__circle_diameter)
         self.setStyleSheet(
-            f'QWidget {{ border: {self.__circle_diameter // 20}px solid #AAAAAA; border-radius: {self.__circle_diameter // 2}px; }}')
+            f'QWidget {{ border: {self.__circle_diameter // 20}px solid #AAAAAA; '
+            f'border-radius: {self.__circle_diameter // 2}px; }}')
         self.setFixedSize(self.__circle_diameter * 2, self.__circle_diameter)
 
     def setAnimation(self, f: bool):
@@ -91,7 +92,5 @@ class PyQtSwitch(QWidget):
 
     def setCircleDiameter(self, diameter: int):
         self.__circle_diameter = diameter
-
         self.__setStyle()
-
         self.__colorAnimation.setEndValue(QPoint(self.__circle_diameter, 0))

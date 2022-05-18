@@ -1,6 +1,8 @@
 # pyqt-switch
 PyQt Switch (O ) -> ( O)
 
+You can choose the option to set the colorizing/moving animation.
+
 ## Requirements
 PyQt5 >= 5.8
 
@@ -8,8 +10,8 @@ PyQt5 >= 5.8
 `python -m pip install pyqt-switch`
 
 ## Feature
-* Provide ```toggled(bool)``` signal
-* You can give the argument to constructor which decides to provide animation(circle in the switch is moving when you toggle it) feature or not. For example, You can declare the class like ```PyQtSwitch(animation_enabled_flag=True)``` to give animation feature. Defaut value of the argument is False.
+* Provide `toggled(bool)` signal
+* Set the animation with `setAnimation(f: bool)`. Default is False.
 
 ## Example
 Code Sample

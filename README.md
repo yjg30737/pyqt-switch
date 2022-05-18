@@ -56,7 +56,9 @@ Result
 
 https://user-images.githubusercontent.com/55078043/169001914-0b86407a-5670-4ae4-ac28-54ec85460bc0.mp4
 
+If you set the circle diameter to 40 with `switch.setCircleDiameter(40)`
 
+![image](https://user-images.githubusercontent.com/55078043/169002295-8717adf8-a1e6-4126-8ef9-42ff8bb3988c.png)
 
 
 

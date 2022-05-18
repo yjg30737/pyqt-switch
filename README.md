@@ -29,6 +29,8 @@ class Widget(QWidget):
     def __initUi(self):
         switch = PyQtSwitch()
         switch.toggled.connect(self.__toggled)
+        switch.setAnimation(True)
+        # switch.setCircleDiameter(40)
 
         self.__label = QLabel()
         self.__label.setText('No')

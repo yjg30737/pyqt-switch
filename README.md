@@ -14,6 +14,7 @@ PyQt5 >= 5.8
 * Set the animation with `setAnimation(f: bool)`. Default is False.
 * Set the diameter of circle-shaped switch button with `setCircleDiameter(diameter: int)`. Default is 20(px).
 * `setChecked(bool)` - Toggle the switch programmatically
+* `isChecked()` - Check switch is turned on
 
 ## Example
 Code Sample
@@ -36,6 +37,11 @@ class Widget(QWidget):
         switch.setAnimation(True)
         # switch.setChecked(True)
         # switch.setCircleDiameter(40)
+
+        # if switch.isChecked():
+        #     print('Yes')
+        # else:
+        #     print('No')
 
         lay = QFormLayout()
         lay.addRow(self.__label, switch)

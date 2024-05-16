@@ -94,3 +94,7 @@ class PyQtSwitch(QWidget):
         self.__circle_diameter = diameter
         self.__setStyle()
         self.__colorAnimation.setEndValue(QPoint(self.__circle_diameter, 0))
+
+    def setChecked(self, f: bool):
+        self.__circle.setChecked(f)
+        self.__toggled(f)

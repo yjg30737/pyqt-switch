@@ -28,13 +28,15 @@ class Widget(QWidget):
         self.__initUi()
 
     def __initUi(self):
+        self.__label = QLabel()
+        self.__label.setText('No')
+
         switch = PyQtSwitch()
         switch.toggled.connect(self.__toggled)
         switch.setAnimation(True)
+        # switch.setChecked(True)
         # switch.setCircleDiameter(40)
 
-        self.__label = QLabel()
-        self.__label.setText('No')
         lay = QFormLayout()
         lay.addRow(self.__label, switch)
         self.setLayout(lay)

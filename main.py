@@ -17,6 +17,11 @@ class Widget(QWidget):
         # switch.setChecked(True)
         # switch.setCircleDiameter(40)
 
+        # if switch.isChecked():
+        #     print('Yes')
+        # else:
+        #     print('No')
+
         lay = QFormLayout()
         lay.addRow(self.__label, switch)
         self.setLayout(lay)

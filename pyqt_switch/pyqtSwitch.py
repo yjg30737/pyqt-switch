@@ -98,3 +98,6 @@ class PyQtSwitch(QWidget):
     def setChecked(self, f: bool):
         self.__circle.setChecked(f)
         self.__toggled(f)
+
+    def isChecked(self):
+        return self.__circle.isChecked()

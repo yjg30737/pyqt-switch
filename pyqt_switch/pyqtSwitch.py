@@ -1,6 +1,18 @@
-from PyQt5.QtCore import Qt, pyqtSignal, QPropertyAnimation, QPoint, QAbstractAnimation, QParallelAnimationGroup
+try:
+    from PyQt6.QtCore import Qt, pyqtSignal, QPropertyAnimation, QPoint, QAbstractAnimation, QParallelAnimationGroup
+    from PyQt6.QtWidgets import QWidget, QPushButton, QGridLayout, QHBoxLayout
+    AlignLeft = Qt.AlignmentFlag.AlignLeft
+    AlignRight = Qt.AlignmentFlag.AlignRight
+    AnimForward = QAbstractAnimation.Direction.Forward
+    AnimBackward = QAbstractAnimation.Direction.Backward
 
-from PyQt5.QtWidgets import QWidget, QPushButton, QGridLayout, QHBoxLayout
+except ImportError:
+    from PyQt5.QtCore import Qt, pyqtSignal, QPropertyAnimation, QPoint, QAbstractAnimation, QParallelAnimationGroup
+    from PyQt5.QtWidgets import QWidget, QPushButton, QGridLayout, QHBoxLayout
+    AlignLeft = Qt.AlignLeft
+    AlignRight = Qt.AlignRight
+    AnimForward = QAbstractAnimation.Forward
+    AnimBackward = QAbstractAnimation.Backward
 
 
 class PyQtSwitch(QWidget):
@@ -23,7 +35,7 @@ class PyQtSwitch(QWidget):
         self.__circle.toggled.connect(self.__toggled)
 
         self.__layForBtnAlign = QHBoxLayout()
-        self.__layForBtnAlign.setAlignment(Qt.AlignLeft)
+        self.__layForBtnAlign.setAlignment(AlignLeft)
         self.__layForBtnAlign.addWidget(self.__circle)
         self.__layForBtnAlign.setContentsMargins(0, 0, 0, 0)
 
@@ -71,19 +83,19 @@ class PyQtSwitch(QWidget):
     def __toggled(self, f):
         if self.__animationEnabledFlag:
             if f:
-                self.__animationGroup.setDirection(QAbstractAnimation.Forward)
+                self.__animationGroup.setDirection(AnimForward)
                 self.__animationGroup.start()
             else:
-                self.__animationGroup.setDirection(QAbstractAnimation.Backward)
+                self.__animationGroup.setDirection(AnimBackward)
                 self.__animationGroup.start()
         else:
             if f:
                 self.__circle.move(self.__circle_diameter, 0)
-                self.__layForBtnAlign.setAlignment(Qt.AlignRight)
+                self.__layForBtnAlign.setAlignment(AlignRight)
                 self.__setColor(200)
             else:
                 self.__circle.move(0, 0)
-                self.__layForBtnAlign.setAlignment(Qt.AlignLeft)
+                self.__layForBtnAlign.setAlignment(AlignLeft)
                 self.__setColor(255)
         self.toggled.emit(f)
 
